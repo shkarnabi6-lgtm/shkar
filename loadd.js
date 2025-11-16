@@ -21,7 +21,19 @@ const streams = [
    "https://avr.host247.net/Ranya/RanyaCity/playlist.m3u8"
 
 ];
-
+if(Hls.isSupported()) {
+        const hls = new Hls();
+        hls.loadSource(streams);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, function() {
+            video.play();
+        });
+    } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+        video.src = streams;
+        video.addEventListener('loadedmetadata', function() {
+            video.play();
+        });
+    }
 /* CHANNEL NAMES */
 const channelNames = [
     "Channel 8", "Kurdsat HD", "Kurdsat News", "Gali Kurdistan", "Kirkuk HD",
