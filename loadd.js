@@ -1,5 +1,3 @@
-
-
 const streams = [
 
 
@@ -126,3 +124,46 @@ window.addEventListener("keydown", (e) => {
 
 /* LOAD FIRST CHANNEL */
 loadStream(channel);
+function loadStream(id) {
+    const url = streams[id];
+    showChannelName(channelNames[id]);
+
+    // Stop video and iframe ALWAYS before loading a new one
+    if (hls) {
+        hls.destroy();
+        hls = null;
+    }
+
+    video.pause();
+    video.removeAttribute("src");
+    video.load();           // fully resets video element
+
+    frame.src = "";         // fully reset iframe
+
+    if (url.endsWith(".m3u8")) {
+
+        // VIDEO MODE
+        frame.style.display = "none";
+        video.style.display = "block";
+
+        if (Hls.isSupported()) {
+            hls = new Hls();
+            hls.loadSource(url);
+            hls.attachMedia(video);
+            hls.on(Hls.Events.MANIFEST_PARSED, () => {
+                video.play();
+            });
+        } else {
+            video.src = url;
+            video.play();
+        }
+
+    } else {
+
+        // IFRAME MODE
+        video.style.display = "none";
+        frame.style.display = "block";
+
+        frame.src = url;  // load iframe
+    }
+}
