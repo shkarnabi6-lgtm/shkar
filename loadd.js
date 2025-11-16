@@ -128,3 +128,58 @@
 
     // Initial load of the first channel
     loadStream(channel);
+function loadStream(id) {
+    const url = streams[id];
+    showChannelName(channelNames[id]);
+
+    // Always stop the current video or iframe before loading a new one
+    resetPlayer();
+
+    // Check if it's a video stream (.m3u8)
+    if (url.endsWith(".m3u8")) {
+        loadVideoStream(url);
+    } else {
+        loadIframe(url);
+    }
+}
+
+function resetPlayer() {
+    if (hls) {
+        hls.destroy();
+        hls = null;
+    }
+
+    // Ensure the video element is completely reset
+    video.pause();
+    video.removeAttribute("src");
+    video.load();  // fully resets video element
+
+    // Reset iframe source to clear any previous stream
+    frame.src = "";  // fully resets iframe
+
+    // Hide both video and iframe initially to avoid display issues
+    video.style.display = "none";
+    frame.style.display = "none";
+}
+
+function loadVideoStream(url) {
+    frame.style.display = "none";  // Hide iframe
+    video.style.display = "block"; // Show video
+
+    if (Hls.isSupported()) {
+        hls = new Hls();
+        hls.loadSource(url);
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED, () => video.play());
+    } else {
+        video.src = url;
+        video.play();
+    }
+}
+
+function loadIframe(url) {
+    video.style.display = "none"; // Hide video
+    frame.style.display = "block"; // Show iframe
+    frame.src = url;  // Set iframe source to the stream URL
+}
+
