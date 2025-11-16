@@ -5,7 +5,7 @@ const streams = [
 
    "https://live.channel8.com/Channel8-Kurdish/index.m3u8",
    "https://live9.karwan.tv/Kurdsattvyusfstore/index.m3u8",
-   "https://iko-streamline-live1.akamaized.net/KurdsatNews/master_0.m3u8",
+   "https://kurdsat-news.akamaized.net/hls/kurdsat-news.m3u8",
    "https://live.host247.net/gk/gksat/playlist.m3u8",
    "https://live.kirkuklive.live/hls/stream/index.m3u8",
    "https://media2.streambrothers.com:1936/8218/8218/HawezHD.m3u8",
