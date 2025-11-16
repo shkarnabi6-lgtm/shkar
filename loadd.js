@@ -1,5 +1,3 @@
-const streams = [
-
 
    "https://live.channel8.com/Channel8-Kurdish/index.m3u8",
    "https://live9.karwan.tv/Kurdsattvyusfstore/index.m3u8",
@@ -17,13 +15,3 @@ const streams = [
    "http://142.132.133.190:1935/live/NRT-SPORT-HawezHD/HawezHD.m3u8",
    "https://6476e46b58f91.streamlock.net/liveTrans/SHOWS123/HawezHD.m3u8",
    "https://avr.host247.net/Ranya/RanyaCity/playlist.m3u8"
-
-];
-
-/* CHANNEL NAMES */
-const channelNames = [
-    "Channel 8", "Kurdsat HD", "Kurdsat News", "Gali Kurdistan", "Kirkuk HD",
-    "Payam HD", "Shar TV", "Rudaw HD", "Speda HD", "Speda Drama",
-    "K24 HD", "AVA Media", "NRT News", "NRT Sport", "Kurdmax TV", "Ranya City",
-    "YouTube Sample"
-];
