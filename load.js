@@ -1,10 +1,8 @@
 
 
 const streams = [
-
-
    "https://live.channel8.com/Channel8-Kurdish/index.m3u8",
-   "https://www.parsatv.com/embed.php?name=Kurdsat-TV&auto=false",
+   "https://www.youtube.com/embed/-GoKoR6aLcY",
    "https://hlspackager.akamaized.net/live/DB/KURDSAT_NEWS/HLS/KURDSAT_NEWS.m3u8",
    "https://live.host247.net/gk/gksat/playlist.m3u8",
    "https://live.kirkuklive.live/hls/stream/index.m3u8",
