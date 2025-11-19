@@ -1,5 +1,5 @@
  const streams = [
-        "",
+        "https://live.channel8.com/Channel8-Kurdish/index.m3u8",
         "https://live9.karwan.tv/Kurdsattvyusfstore/index.m3u8",
         "https://www.parsatv.com/embed.php?name=Kurdsat-News&auto=true",
         "https://live.host247.net/gk/gksat/playlist.m3u8",
